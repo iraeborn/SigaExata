@@ -31,9 +31,9 @@ unset($_SESSION['status']);
 
 
 <?php
-$connection = mysqli_connect("localhost", "root","","adminpanel");
+include 'conn.php';
 
-$query = "SELECT * FROM register";
+$query = "SELECT * FROM user";
 $query_run = mysqli_query($connection, $query);
 
 ?>
@@ -57,9 +57,9 @@ while($row = mysqli_fetch_assoc($query_run))
 
 <tr>
 <td><?php echo $row['id']; ?></td>
-<td><?php echo $row['usuario']; ?></td>
+<td><?php echo $row['username']; ?></td>
 <td><?php echo $row['email']; ?></td>
-<td><?php echo $row['password']; ?></td>
+<td><?php echo md5($row['senha']); ?></td>
 </tr>
 
 <?php
