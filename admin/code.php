@@ -14,10 +14,10 @@ if(isset($_POST["registerbtn"])){
 	$query = "INSERT INTO register (username, email, password) VALUES ('$username', '$email'.'$password')";
 	$query_run = mysqli_query($connection, $query);
 		if($query_run){
-		$SESSION['sucess'] = "Admin Profile Added";
+		$SESSION['sucess'] = "Usuário criado";
 		header['Location:register.php'];
 		}else{
-		$SESSION['status'] = "Admin Profile NOT Added";
+		$SESSION['status'] = "Usuário não foi criado";
 		header['Location:register.php'];		
 		}
 	}else{
