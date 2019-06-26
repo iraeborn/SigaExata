@@ -9,8 +9,8 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $cpassword = $_POST["confirmpassword"];
 $datacadastro = date("d/m/Y");
-$tipo
-$status
+$tipo = 1; //nível de acesso:0 = administrador,1 = cliente,2 = comercial,3 = marketing,4 = ti, 5 = juridico
+$status = 1; //0 ativo 1 desativado
 	
 	if($password === $cpassword){
 
