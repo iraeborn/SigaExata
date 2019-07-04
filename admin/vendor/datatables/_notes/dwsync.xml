@@ -4,4 +4,7 @@
 <file name="jquery.dataTables.min.js" server="177.52.160.19" local="132065572723625114" remote="132065572200000000" Dst="1" />
 <file name="dataTables.bootstrap4.min.js" server="177.52.160.19" local="132049266900000000" remote="132065382600000000" Dst="1" />
 <file name="jquery.dataTables.js" server="177.52.160.19" local="132065541104879754" remote="132065541000000000" Dst="1" />
+<file name="dataTables.bootstrap4.min.css" server="177.52.160.19/public_html/" local="132049266900000000" remote="132066644400000000" Dst="1" />
+<file name="dataTables.bootstrap4.min.js" server="177.52.160.19/public_html/" local="132049266900000000" remote="132066644400000000" Dst="1" />
+<file name="jquery.dataTables.min.js" server="177.52.160.19/public_html/" local="132065573926956377" remote="132066644400000000" Dst="1" />
 </dwsync>

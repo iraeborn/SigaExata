@@ -3,9 +3,6 @@
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-  <div class="sidebar-brand-icon rotate-n-15">
-    <i class="fas fa-laugh-wink"></i>
-  </div>
   <div class="sidebar-brand-text mx-3">SigaExata</div>
 </a>
 
@@ -15,7 +12,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-  <a class="nav-link" href="index.html">
+  <a class="nav-link" href="#">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Painel</span></a>
 </li>
@@ -25,36 +22,35 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Comercial
+  MENU
 </div>
 
-<!-- Nav Item - Pages Collapse Menu -->
+<!-- Nav Item - Clientes -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes" aria-expanded="true" aria-controls="collapseClientes">
     <i class="fas fa-fw fa-cog"></i>
     <span>Clientes</span>
   </a>
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+  <div id="collapseClientes" class="collapse" aria-labelledby="headingClientes" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <a class="collapse-item" href="register.php">Novo</a>
+      <a class="collapse-item" href="novo_cliente.php">Novo</a>
       <a class="collapse-item" href="clientes.php">Listar</a>
+		<a class="collapse-item" href="clientes.php">Briefing</a>
+		<a class="collapse-item" href="clientes.php">Simulador</a>
     </div>
   </div>
 </li>
 
-<!-- Nav Item - Utilities Collapse Menu -->
+<!-- Nav Item - Marketing -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMarketing" aria-expanded="true" aria-controls="collapseMarketing">
     <i class="fas fa-fw fa-wrench"></i>
-    <span>Utilities</span>
+    <span>Marketing</span>
   </a>
-  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+  <div id="collapseMarketing" class="collapse" aria-labelledby="headingMarketing" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Utilities:</h6>
-      <a class="collapse-item" href="utilities-color.html">Colors</a>
-      <a class="collapse-item" href="utilities-border.html">Borders</a>
-      <a class="collapse-item" href="utilities-animation.html">Animations</a>
-      <a class="collapse-item" href="utilities-other.html">Other</a>
+      <a class="collapse-item" href="#">key-visual</a>
+      <a class="collapse-item" href="#">Peças</a>
     </div>
   </div>
 </li>
@@ -63,42 +59,34 @@
 <hr class="sidebar-divider">
 
 <!-- Heading -->
-<div class="sidebar-heading">
-  Addons
-</div>
 
-<!-- Nav Item - Pages Collapse Menu -->
+<!-- Nav Item - Jurídico -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJuridico" aria-expanded="true" aria-controls="collapseJuridico">
     <i class="fas fa-fw fa-folder"></i>
-    <span>Pages</span>
+    <span>Jurídico</span>
   </a>
-  <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+  <div id="collapseJuridico" class="collapse" aria-labelledby="headingJuridico" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Login Screens:</h6>
-      <a class="collapse-item" href="login.html">Login</a>
-      <a class="collapse-item" href="register.html">Register</a>
-      <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-      <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Other Pages:</h6>
-      <a class="collapse-item" href="404.html">404 Page</a>
-      <a class="collapse-item" href="blank.html">Blank Page</a>
+      <a class="collapse-item" href="#">Contador</a>
+      <a class="collapse-item" href="#">Documentos</a>
     </div>
   </div>
 </li>
 
-<!-- Nav Item - Charts -->
+<!-- Nav Item - TI -->
 <li class="nav-item">
-  <a class="nav-link" href="charts.html">
-    <i class="fas fa-fw fa-chart-area"></i>
-    <span>Charts</span></a>
-</li>
-
-<!-- Nav Item - Tables -->
-<li class="nav-item active">
-  <a class="nav-link" href="tables.html">
-    <i class="fas fa-fw fa-table"></i>
-    <span>Tables</span></a>
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTI" aria-expanded="true" aria-controls="collapseTI">
+    <i class="fas fa-fw fa-folder"></i>
+    <span>TI</span>
+  </a>
+  <div id="collapseTI" class="collapse" aria-labelledby="headingTI" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="#">Servidor</a>
+      <a class="collapse-item" href="#">Banco de dados</a>
+		<a class="collapse-item" href="#">Domínio</a>
+    </div>
+  </div>
 </li>
 
 <!-- Divider -->

@@ -44,10 +44,10 @@ session_start();
                   </div>
                   <form class="user" action="code.php" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Digite seu endereço de email...">
+                      <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de email...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Digite sua senha">
+                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Digite sua senha">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -55,14 +55,13 @@ session_start();
                         <label class="custom-control-label" for="customCheck">Lembre-me</label>
                       </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                      Entrar
-                    </a>
+					  <input type="hidden" name="registerbtn" value="login">
+					  <button class="btn btn-primary btn-user btn-block" type="submit">Entrar</button>
+                   
                     
 <?php
 //Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['success']) && $_SESSION['success'] !='')
-{
+if(isset($_SESSION['success']) && $_SESSION['success'] !=''){
     echo "<hr>";
 echo $_SESSION['success'];
 unset($_SESSION['success']);
@@ -70,8 +69,7 @@ echo "<hr>";
 }
 
 //Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['status']) && $_SESSION['status'] !='')
-{
+if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
     echo "<hr>";
 echo $_SESSION['status'];
 unset($_SESSION['status']);

@@ -57,7 +57,8 @@ session_start();
                     <input type="password" class="form-control form-control-user" id="confirmpassword" name="confirmpassword" placeholder="Confirma Senha">
                   </div>
                 </div>
-               <button class="btn btn-primary btn-user btn-block" type="submit" name="registerbtn">Registrar</button>
+				  <input type="hidden" name="registerbtn" value="registro">
+               <button class="btn btn-primary btn-user btn-block" type="submit">Registrar</button>
                 
 <?php
 //Caso a sessão seja iniciada, exibe mensagem sucess
