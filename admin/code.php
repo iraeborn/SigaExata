@@ -32,7 +32,7 @@ $status = 1; //0 = ativo, 1 = desativado
 			//echo $query;
 			$_SESSION['sucess'] = "false";
 			$_SESSION['status'] = "Esse email já está sendo usado";
-			header('Location:register.php');
+			header('Location:register');
 			die();
 			
 		}else{
@@ -44,13 +44,13 @@ $status = 1; //0 = ativo, 1 = desativado
 			
 			$_SESSION['sucess'] = "true";
 			$_SESSION['status'] = "Usuário criado com sucesso";
-			header('Location:login.php');
+			header('Location:login');
 			die();
 			
 		}else{
 			
 			$_SESSION['status'] = "Usuário não foi criado";
-			header('Location:register.php');
+			header('Location:register');
 			die();
 			
 		}
@@ -59,7 +59,7 @@ $status = 1; //0 = ativo, 1 = desativado
 	}else{
 	    
 		$_SESSION['status'] = "O campo senha não confere";
-		header('Location:register.php');
+		header('Location:register');
 		die();
 		
 	} //end if is set cpassword
@@ -73,7 +73,7 @@ $status = 1; //0 = ativo, 1 = desativado
 	//echo "Os dois campos são obrigatórios";
 	$_SESSION['sucess'] = "false";
 	$_SESSION['status'] = "Os dois campos são obrigatórios";
-	header('Location:login.php');
+	header('Location:login');
 	}else{
 		
 	// proteção MySQL injection
@@ -92,7 +92,7 @@ $password = mysqli_real_escape_string($connection, $password);
 		//echo $query;
 		$_SESSION['success'] = "true";
 		$_SESSION['status'] = "você está dentro";
-		header('Location:clientes.php');
+		header('Location:clientes');
 		die();
 		
 	}else{
@@ -100,7 +100,7 @@ $password = mysqli_real_escape_string($connection, $password);
 		//echo $query;
 		$_SESSION['success'] = "false";
 		$_SESSION['status'] = "Login ou senha inválidos";
-		header('Location:login.php');
+		header('Location:login');
 		die();
 	}
 		
@@ -116,6 +116,6 @@ echo "Editar usuário";
 	
 	$_SESSION['success'] = "true";
 	$_SESSION['status'] = "Usuário excluído com sucesso";
-	header('Location:clientes.php');
+	header('Location:clientes');
 }
 ?>

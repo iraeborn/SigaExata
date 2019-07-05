@@ -1,0 +1,11 @@
+RewriteEngine On
+
+##404
+ErrorDocument 404 /arquivo_error.php
+
+# não listar diretorios
+IndexIgnore *
+
+# renderizar paginas sem a extensão
+
+Options +MultiViews

@@ -53,8 +53,11 @@ include 'conn.php';
           <h1 class="h3 mb-2 text-gray-800">Perfil</h1>
           <p class="mb-4">....</p>
 
+			<?php
+			
+			?>
+			
           <!-- DataTales Example -->
-
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Form</h6>

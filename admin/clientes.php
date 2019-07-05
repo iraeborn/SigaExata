@@ -188,7 +188,7 @@ echo "Nenhum registro encontrado";
         </button>
       </div>
 		
-		<form class="user" action="code.php" method="post">
+		<form class="user" action="perfil.php" method="post">
 			
       <div class="modal-body">
 		  <!--FORM -->

@@ -10,7 +10,7 @@
         <div class="modal-body">Clique em "SIM, SAIR" para terminar sua sessão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancela</button>
-          <a class="btn btn-primary" href="logout.php">SIM, SAIR</a>
+          <a class="btn btn-primary" href="logout">SIM, SAIR</a>
         </div>
       </div>
     </div>
