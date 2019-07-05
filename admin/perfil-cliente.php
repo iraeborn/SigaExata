@@ -1,4 +1,6 @@
 <?php
+session_start();
+include 'includes/session.php';
 include 'conn.php';
 ?>
 <!DOCTYPE html>
@@ -12,7 +14,7 @@ include 'conn.php';
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SigaExata - Clientes</title>
+  <title>SigaExata - Perfil Clientes</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,7 +50,7 @@ include 'conn.php';
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Nova conta</h1>
+          <h1 class="h3 mb-2 text-gray-800">Perfil</h1>
           <p class="mb-4">....</p>
 
           <!-- DataTales Example -->

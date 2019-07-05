@@ -1,4 +1,6 @@
 <?php
+session_start();
+include 'includes/session.php';
 include 'conn.php';
 ?>
 <!DOCTYPE html>
@@ -23,7 +25,8 @@ include 'conn.php';
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+	
+	<script async="" src="js/suport.js"></script>
 </head>
 
 <body id="page-top">
@@ -50,26 +53,10 @@ include 'conn.php';
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
           <p class="mb-4">
-<?php
-//Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['success']) && $_SESSION['success'] !='')
-{
-    echo "<hr>";
-echo $_SESSION['success'];
-unset($_SESSION['success']);
-echo "<hr>";
-}
-
-//Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['status']) && $_SESSION['status'] !='')
-{
-    echo "<hr>";
-echo $_SESSION['status'];
-unset($_SESSION['status']);
-echo "<hr>";
-}
-
-?>
+			  
+<!--Alert session-->
+<?php include 'includes/alerts-session.php'; ?>
+			  
 			</p>
 
           <!-- DataTales Example -->
@@ -115,6 +102,7 @@ if(mysqli_num_rows($query_run) > 0){
 	
 while($row = mysqli_fetch_assoc($query_run)){
 ?>
+			
 					<tr>
 					<td><?php echo $row['username']; ?></td>                  
 					<td><?php echo $row['cliente_id']; ?></td>
@@ -123,9 +111,26 @@ while($row = mysqli_fetch_assoc($query_run)){
 					<td><?php echo $row['senha']; ?></td>
 					<td><?php echo $row['status']; ?></td>
 					<td><?php echo $row['tipo']; ?></td>
-						<td><button class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></button></td>
-						<td><button class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
+						
+						
+						<td>
+							<button class="btn btn-info btn-circle" data-toggle="modal" data-target="#editarcliente">
+								<i class="fas fa-info-circle"></i>
+							</button>
+						</td>
+							
+
+<td>
+	<button class="btn btn-danger btn-circle" data-toggle="modal" data-target="#excluircliente" onClick="carregacliente('<?php echo $row['email']; ?>');">
+	<i class="fas fa-trash"></i>
+	</button>
+</td>
+
+						
                     </tr>
+				  
+
+					  
 <?php
 }
 }else{
@@ -137,7 +142,72 @@ echo "Nenhum registro encontrado";
               </div>
             </div>
           </div>
-
+			
+<!-- Modal ecluir usuario -->
+<div class="modal fade" id="excluircliente" tabindex="-1" role="dialog" aria-labelledby="excluircliente" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+		
+		<form class="user" action="code.php" method="post">
+			
+      <div class="modal-body">
+		  <!--FORM -->
+        <p>Deseja realmente exlcuir definitivamente o usuário?</p>
+		<p id="userMsg"></p>
+		<input type="hidden" name="registerbtn" value="excluircliente">
+		<input type="hidden" id="deletaruser" name="deletaruser" value="">
+		
+		  <!--END FORM -->
+      </div>
+			
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancela</button>
+        <button type="submit" class="btn btn-primary">DELETAR</button>
+      </div>
+			
+		</form>
+		
+    </div>
+  </div>
+</div>
+					  
+<!-- Modal editar usuario -->
+<div class="modal fade" id="editarcliente" tabindex="-1" role="dialog" aria-labelledby="excluircliente" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+		
+		<form class="user" action="code.php" method="post">
+			
+      <div class="modal-body">
+		  <!--FORM -->
+        Deseja Editar o usuário?
+			<input type="hidden" name="registerbtn" value="editarcliente">
+		
+		  <!--END FORM -->
+      </div>
+			
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancela</button>
+        <button type="submit" class="btn btn-primary">EDITAR</button>
+      </div>
+			
+		</form>
+		
+    </div>
+  </div>
+</div>
         </div>
         <!-- /.container-fluid -->
 

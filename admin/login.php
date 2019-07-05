@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'includes/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +43,7 @@ session_start();
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Bem vindo</h1>
                   </div>
+					
                   <form class="user" action="code.php" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de email...">
@@ -59,24 +61,9 @@ session_start();
 					  <button class="btn btn-primary btn-user btn-block" type="submit">Entrar</button>
                    
                     
-<?php
-//Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['success']) && $_SESSION['success'] !=''){
-    echo "<hr>";
-echo $_SESSION['success'];
-unset($_SESSION['success']);
-echo "<hr>";
-}
-
-//Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
-    echo "<hr>";
-echo $_SESSION['status'];
-unset($_SESSION['status']);
-echo "<hr>";
-}
-
-?>
+<!--Alert session-->
+<?php include 'includes/alerts-session.php'; ?>
+					  
                     <a href="index.html" class="btn btn-google btn-user btn-block" style="display:none;">
                       <i class="fab fa-google fa-fw"></i> Login with Google
                     </a>

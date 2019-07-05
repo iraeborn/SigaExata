@@ -10,6 +10,7 @@ Módulos Adminitrativos para gestão de usuários, clientes, projetos e sorteios
 Um tema de administração gratuito do Bootstrap 4 criado com HTML / CSS e um ambiente moderno de fluxo de trabalho de desenvolvimento pronto para usar para construir seu próximo painel ou aplicativo da Web
 
 https://github.com/BlackrockDigital/startbootstrap-sb-admin-2
+https://coreui.io/docs/
 
 ## MODULOS
 http://177.52.160.19/~sigaexat/admin/
