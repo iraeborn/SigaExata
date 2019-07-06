@@ -12,10 +12,13 @@ if($ac == "registro"){
 function before($this, $inthat){
         return substr($inthat, 0, strpos($inthat, $this));
 }
+	
 $user = before('@', $_POST["email"]);
 $email = $_POST["email"];
 $password = $_POST["password"];
 $cpassword = $_POST["confirmpassword"];
+$nome = $_POST["nome"];
+$sobrenome = $_POST["sobrenome"];
 $datacadastro = date("d/m/Y"); 
 $tipo = 1; //nível de acesso:0 = administrador,1 = cliente,2 = comercial,3 = marketing,4 = ti, 5 = juridico
 $status = 1; //0 = ativo, 1 = desativado
@@ -37,18 +40,24 @@ $status = 1; //0 = ativo, 1 = desativado
 			
 		}else{
 			
-		$query = "INSERT INTO user (username, email, senha, datacadastro, tipo, status) VALUES ('$user','$email','$password','$datacadastro','$tipo','$status')";
-		$query_run = mysqli_query($connection, $query);
-
-		if($query_run){
+		$query_cliente = "INSERT INTO `cliente`(`nome`, `sobrenome`, `email1`) VALUES ('$nome', '$sobrenome', '$email')";
 			
-			$_SESSION['sucess'] = "true";
+			
+		$query_user = "INSERT INTO user (cliente_id, username, email, senha, datacadastro, tipo, status) VALUES (LAST_INSERT_ID(),'$user','$email','$password','$datacadastro', '$tipo', '$status')";
+
+			
+		$query_cliente_run = mysqli_query($connection, $query_cliente);
+		$query_user_run = mysqli_query($connection, $query_user);
+
+		if($query_cliente_run && $query_user_run){
+			
+			$_SESSION['sucess'] = "false";
 			$_SESSION['status'] = "Usuário criado com sucesso";
 			header('Location:login');
 			die();
 			
 		}else{
-			
+			$_SESSION['sucess'] = "false";
 			$_SESSION['status'] = "Usuário não foi criado";
 			header('Location:register');
 			die();
@@ -57,7 +66,7 @@ $status = 1; //0 = ativo, 1 = desativado
 		
 	}
 	}else{
-	    
+	    $_SESSION['sucess'] = "false";
 		$_SESSION['status'] = "O campo senha não confere";
 		header('Location:register');
 		die();
@@ -90,7 +99,7 @@ $password = mysqli_real_escape_string($connection, $password);
 	if(mysqli_num_rows($query_run) == 1){
 		//echo "você está dentro<br>";
 		//echo $query;
-		$_SESSION['success'] = "true";
+		$_SESSION['sucess'] = "true";
 		$_SESSION['status'] = "você está dentro";
 		header('Location:clientes');
 		die();
@@ -98,7 +107,7 @@ $password = mysqli_real_escape_string($connection, $password);
 	}else{
 		//echo "Não encontrou seu login<br>";
 		//echo $query;
-		$_SESSION['success'] = "false";
+		$_SESSION['sucess'] = "false";
 		$_SESSION['status'] = "Login ou senha inválidos";
 		header('Location:login');
 		die();
@@ -108,13 +117,14 @@ $password = mysqli_real_escape_string($connection, $password);
 }//end if is set post
 elseif($ac == "editarcliente"){
 echo "Editar usuário";
+	
 }elseif($ac == "excluircliente"){
 	
 //echo "excluir do usuário ".$_POST["deletaruser"];
-	$query = "DELETE FROM user WHERE email = '".$_POST["deletaruser"]."'";
+	$query = "DELETE FROM user WHERE email = '".$_POST["userid"]."'";
 	$query_run = mysqli_query($connection, $query);
 	
-	$_SESSION['success'] = "true";
+	$_SESSION['sucess'] = "true";
 	$_SESSION['status'] = "Usuário excluído com sucesso";
 	header('Location:clientes');
 }

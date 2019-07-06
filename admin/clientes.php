@@ -114,14 +114,14 @@ while($row = mysqli_fetch_assoc($query_run)){
 						
 						
 						<td>
-							<button class="btn btn-info btn-circle" data-toggle="modal" data-target="#editarcliente">
+							<button class="btn btn-info btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $row['cliente_id']; ?>','<?php echo $row['email']; ?>','edit');">
 								<i class="fas fa-info-circle"></i>
 							</button>
 						</td>
 							
 
 <td>
-	<button class="btn btn-danger btn-circle" data-toggle="modal" data-target="#excluircliente" onClick="carregacliente('<?php echo $row['email']; ?>');">
+	<button class="btn btn-danger btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $row['cliente_id']; ?>','<?php echo $row['email']; ?>','del');">
 	<i class="fas fa-trash"></i>
 	</button>
 </td>
@@ -143,8 +143,8 @@ echo "Nenhum registro encontrado";
             </div>
           </div>
 			
-<!-- Modal ecluir usuario -->
-<div class="modal fade" id="excluircliente" tabindex="-1" role="dialog" aria-labelledby="excluircliente" aria-hidden="true">
+<!-- Modal  -->
+<div class="modal fade" id="cli" tabindex="-1" role="dialog" aria-labelledby="cli" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -154,21 +154,20 @@ echo "Nenhum registro encontrado";
         </button>
       </div>
 		
-		<form class="user" action="code.php" method="post">
+		<form id="modalform" class="user" action="" name="modalform" method="post">
 			
       <div class="modal-body">
 		  <!--FORM -->
-        <p>Deseja realmente exlcuir definitivamente o usuário?</p>
 		<p id="userMsg"></p>
-		<input type="hidden" name="registerbtn" value="excluircliente">
-		<input type="hidden" id="deletaruser" name="deletaruser" value="">
+		<input type="hidden" id="registerbtn" name="registerbtn" value="">
+		<input type="hidden" id="userid" name="userid" value="">
 		
 		  <!--END FORM -->
       </div>
 			
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancela</button>
-        <button type="submit" class="btn btn-primary">DELETAR</button>
+        <input type="submit" name="submit" class="btn btn-primary" id="submit" value="">
       </div>
 			
 		</form>
@@ -176,38 +175,8 @@ echo "Nenhum registro encontrado";
     </div>
   </div>
 </div>
-					  
-<!-- Modal editar usuario -->
-<div class="modal fade" id="editarcliente" tabindex="-1" role="dialog" aria-labelledby="excluircliente" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-		
-		<form class="user" action="perfil.php" method="post">
+<!-- End Modal  -->
 			
-      <div class="modal-body">
-		  <!--FORM -->
-        Deseja Editar o usuário?
-			<input type="hidden" name="registerbtn" value="editarcliente">
-		
-		  <!--END FORM -->
-      </div>
-			
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancela</button>
-        <button type="submit" class="btn btn-primary">EDITAR</button>
-      </div>
-			
-		</form>
-		
-    </div>
-  </div>
-</div>
         </div>
         <!-- /.container-fluid -->
 

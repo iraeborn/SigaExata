@@ -44,7 +44,7 @@ include 'includes/session.php';
                     <h1 class="h4 text-gray-900 mb-4">Bem vindo</h1>
                   </div>
 					
-                  <form class="user" action="code.php" method="post">
+                  <form class="user" action="code" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de email...">
                     </div>
@@ -73,10 +73,10 @@ include 'includes/session.php';
                   </form>
                   
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Esqueceu sua senha?</a>
+                    <a class="small" href="forgot-password">Esqueceu sua senha?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.php">Crie sua conta!</a>
+                    <a class="small" href="register">Crie sua conta!</a>
                   </div>
                 </div>
               </div>

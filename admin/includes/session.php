@@ -2,20 +2,25 @@
 $url_atual = "$_SERVER[REQUEST_URI]";
 //"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-if( isset($_SESSION['status']) ){
-	//sessão iniciada
-		if($url_atual == "/admin/login"){
-		//redireciona para pg clientes
-		header('Location:clientes');	
-		}else{
-		echo $url_atual;
-			//logado
-}
+if( isset($_SESSION['sucess']) ){
 	
-}elseif($url_atual != "/admin/login"){
-	//sessão não iniciada, redireciona para pg de login
-	header('Location:login');
+	//sessão iniciada
+	if($_SESSION['sucess'] == 'true'){
+		
+		if($url_atual == "/admin/login"){
+			//redireciona para pg clientes
+			header('Location:clientes');	
+		}else{
+			//logado
+			//echo "1";
+		}
+		
+	}else{
+			echo "2";	
+	}
+	
 }else{
-	//
+	//não logado
+	//echo "Session 'sucess' não definida!";
 }
 ?>

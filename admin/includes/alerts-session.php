@@ -1,7 +1,7 @@
 <?php
 //SUCCESS
-if(isset($_SESSION['success']) && $_SESSION['success'] !=''){
-echo "success: ".$_SESSION['success'];
+if(isset($_SESSION['sucess']) && $_SESSION['sucess'] !=''){
+echo "sucess: ".$_SESSION['sucess'];
 echo "<br>";
 //unset($_SESSION['success']);
 }
