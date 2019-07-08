@@ -11,7 +11,17 @@ echo "status: ".$_SESSION['status'];
 echo "<br>";
 //unset($_SESSION['status']);
 }
-			  
+
+//SOBRENOME
+if(isset($_SESSION['sobrenome'])){
+	echo "nome, sobrenome: ".$_SESSION['sobrenome'];
+	echo "<br>";
+}
+	
+if(isset($_SESSION['userid'])){
+	echo "user_id: ".$_SESSION['userid'];
+	echo "<br>";
+}
 //URL
 //if(isset($_SESSION['url']) && $_SESSION['url'] !=''){
 echo "url: ".$url_atual;

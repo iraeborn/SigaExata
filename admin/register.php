@@ -20,7 +20,13 @@ session_start();
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
+	<script async="" src="js/suport.js"></script>
 
+		 <!-- <link href="css/bootstrap.min.css" rel="stylesheet" /> -->
+		<script src="js/up/jquery-1.10.2.min.js"></script>
+		<script src="js/up/bootstrap.min.js"></script>
+		<script src="js/up/jquery.form.js"></script>
+	
 </head>
 
 <body class="bg-gradient-primary">
@@ -37,7 +43,7 @@ session_start();
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Crie sua conta!</h1>
               </div>
-              <form class="user" action="code.php" method="post">
+              <form id="registercliente" class="user" action="code.php" method="post" enctype="multipart/form-data">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="nome"  name="nome" placeholder="Nome">
@@ -57,8 +63,33 @@ session_start();
                     <input type="password" class="form-control form-control-user" id="confirmpassword" name="confirmpassword" placeholder="Confirma Senha">
                   </div>
                 </div>
-				  <input type="hidden" name="registerbtn" value="registro">
-               <button class="btn btn-primary btn-user btn-block" type="submit">Registrar</button>
+
+			<input type="hidden" name="registerbtn" value="registro">
+
+				<div class="form-group row">
+                  <div class="col-sm-12">
+					  
+<div id="targetLayer" style="display:none;">
+					  
+					  </div>
+                  </div>
+                </div>
+			</form>
+				  <!-- IMAGEM / submit button-->
+				<div class="form-group row">
+                  <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="btn btn-primary btn-circle" data-toggle="modal" data-target="#teste">
+						<i class="fas fa-upload"></i>
+					</button>
+                  </div>
+                  <div class="col-sm-10">
+                    <button class="btn btn-primary btn-user btn-block" type="submit" onClick="enviaform('registercliente');">Registrar</button>
+                  </div>
+                </div>
+				
+				 
+				  
+				  
                 
 <?php
 //Caso a sessão seja iniciada, exibe mensagem sucess
@@ -80,15 +111,11 @@ echo "<hr>";
 }
 
 ?>
-                <a href="index.html" class="btn btn-google btn-user btn-block" style="display:none;">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block" style="display:none;">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>
-              </form>
+
+              
              
               <div class="text-center">
+				  
                 <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
               </div>
               <div class="text-center">
@@ -102,12 +129,55 @@ echo "<hr>";
 
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Modal  -->
+<div class="modal fade" id="teste" tabindex="-1" role="dialog" aria-labelledby="teste" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Envie sua foto de perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+		
+		<form id="uploadImage" action="upload.php" method="post">
+			
+      <div class="modal-body">
+		  <!--FORM -->
+		<p id="userMsg">Escolha a imagem</p>
+		  <input type="file" class="btn btn-primary"  name="uploadFile" id="uploadFile" accept=".jpg, .png" />
+		  <!--END FORM -->
+      </div>
+			
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancela</button>
+        
+		  <input type="submit" id="uploadSubmit" value="Upload"  class="btn btn-primary" />
+		  
+		  <div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						
+		  
+      </div>
+			
+		</form>
+		<div id="loader-icon" style="display:none;"><img src="loader.svg" /></div>
+    </div>
+  </div>
+</div>
+<!-- End Modal  -->
+	
+<!-- Bootstrap core JavaScript-->
+   <!-- <script src="vendor/jquery/jquery.min.js"></script>-->
+ <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+ <!--  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
+
+  <!-- Page level plugins -->
+  <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script>-->
+  <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>-->
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
@@ -115,3 +185,36 @@ echo "<hr>";
 </body>
 
 </html>
+<script>
+$(document).ready(function(){
+	$('#uploadImage').submit(function(event){
+		if($('#uploadFile').val())
+		{
+			event.preventDefault();
+			$('#loader-icon').show();
+			$('#targetLayer').hide();
+			$(this).ajaxSubmit({
+				target: '#targetLayer',
+				beforeSubmit:function(){
+					$('.progress-bar').width('50%');
+				},
+				uploadProgress: function(event, position, total, percentageComplete)
+				{
+					$('.progress-bar').animate({
+						width: percentageComplete + '%'
+					}, {
+						duration: 1000
+					});
+				},
+				success:function(){
+					
+					$('#loader-icon').hide();
+					$('#targetLayer').show();
+				},
+				resetForm: true
+			});
+		}
+		return false;
+	});
+});
+</script>

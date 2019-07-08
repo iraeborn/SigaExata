@@ -45,12 +45,12 @@
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <span class="badge badge-danger badge-counter">1</span>
               </a>
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
-                  Alerts Center
+                  Central de Alertas
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="mr-3">
@@ -59,13 +59,13 @@
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    <div class="small text-gray-500">Julho 2, 2019</div>
+                    <span class="font-weight-bold">Confira as novidades da SigaExata!</span>
                   </div>
                 </a>
                 
                 
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todos alertas</a>
               </div>
             </li>
 
@@ -74,12 +74,12 @@
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter">1</span>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                  Message Center
+                  Mensagens
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
@@ -87,28 +87,35 @@
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                    <div class="text-truncate">Olá! Eu estou querendo saber se você pode me ajudar com um problema que eu tenho tido.</div>
+                    <div class="small text-gray-500">Iraê Bornholdt · 58m</div>
                   </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Leia mais mensagens</a>
               </div>
             </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
+			  
+			  <?php
+
+			  ?>
+			  
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['sobrenome']?></span>
+                <img class="img-profile rounded-circle" width="60px" height="60px" src="avatar/<?php echo $_SESSION['avatar']?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+				  
+                <a class="dropdown-item" href="perfil?id=<?php echo $_SESSION['userid']?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Perfil
                 </a>
+				 
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Configurações

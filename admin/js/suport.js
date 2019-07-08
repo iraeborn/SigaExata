@@ -15,3 +15,7 @@ function carregacliente(a,b,c){
 		document.getElementById('userid').value = a;
 		}
 }
+
+function enviaform(a){
+	document.getElementById(a).submit();
+}

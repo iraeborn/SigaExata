@@ -44,10 +44,6 @@ if (isset($_POST["updatebtn"])) {
 	}
 			
 		
-	}else{
-		//echo "<br>updatebtn não definido";
-		$ac = $_POST["registerbtn"];
-		$userid = $_POST["userid"];
 	}
 ?>
 
@@ -99,29 +95,26 @@ if (isset($_POST["updatebtn"])) {
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Perfil</h1>
+          <h1 class="h3 mb-2 text-gray-800">Complete o seu Perfil</h1>
           <p class="mb-4">....</p>
 
 			<?php
-			
-if($ac == "editarcliente"){
-	
-	//teste 2
-	//$query = "(SELECT * FROM cliente WHERE cliente_id = ".$userid.") UNION (SELECT * FROM user WHERE id = ".$userid.")";
-	
-	//teste 1
-	//$query = "SELECT cl.id,cl.nome,cl.sobrenome,cl.email1,us.cliente_id,us.email FROM cliente AS cl , user AS us WHERE us.cliente_id = ".$userid." AND cl.id = ".$userid;
-	
-	//exemplo teste 3
-	//$query = "SELECT cl.*, us.* FROM cliente AS cl INNER JOIN user AS us WHERE us.cliente_id =".$userid;
-//." AND us.cliente_id =".$userid
-	
-	//teste 4
-	//$query = "SELECT * FROM cliente WHERE id = ".$userid;
-	
-	//teste5
-	$query = "SELECT * FROM cliente 
-INNER JOIN user WHERE user.cliente_id = ".$userid;
+			//else{
+		//echo "<br>updatebtn não definido";
+		//$ac = $_POST["registerbtn"];
+		//$userid = $_POST["userid"];
+			//}
+if(isset($_POST["registerbtn"]) && $_POST["registerbtn"] == "editarcliente"){
+$userid = $_POST["userid"];
+	$query = "SELECT
+   cliente.*,
+   user.*
+FROM
+   cliente
+INNER JOIN
+   user ON user.cliente_id = cliente.id
+WHERE
+   cliente.id = ".$userid;
 	
 	$query_run = mysqli_query($connection, $query);
 	
@@ -143,7 +136,7 @@ while($row = mysqli_fetch_assoc($query_run)){
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Form</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Perfil</h6>
             </div>
             <div class="card-body">
               <form class="user" action="perfil" method="post">
@@ -269,6 +262,9 @@ while($row = mysqli_fetch_assoc($query_run)){
 }else{
 echo "Nenhum registro encontrado";
 }
+}else{
+	echo "exibe perfil";
+	echo $_GET['id'];
 }
 ?>
         </div>

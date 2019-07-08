@@ -62,19 +62,8 @@ include 'conn.php';
           <!-- DataTales Example -->
 
 <?php
-//$query = "SELECT * FROM  'cliente' AS 'cl' LEFT OUTER JOIN 'user' AS 'us' WHERE 'us.cliente_id' = 'cl.id'";
 $query = "SELECT * FROM  user";
 $query_run = mysqli_query($connection, $query);
-//$row = $query->fetch_assoc();
-
-/*
-if (!$connection) {
-  echo "Error: Unable to connect to MySQL." . PHP_EOL;
-  echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-  echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-  exit;
-}
-*/
 ?>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -102,7 +91,6 @@ if(mysqli_num_rows($query_run) > 0){
 	
 while($row = mysqli_fetch_assoc($query_run)){
 ?>
-			
 					<tr>
 					<td><?php echo $row['username']; ?></td>                  
 					<td><?php echo $row['cliente_id']; ?></td>
@@ -111,8 +99,7 @@ while($row = mysqli_fetch_assoc($query_run)){
 					<td><?php echo $row['senha']; ?></td>
 					<td><?php echo $row['status']; ?></td>
 					<td><?php echo $row['tipo']; ?></td>
-						
-						
+
 						<td>
 							<button class="btn btn-info btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $row['cliente_id']; ?>','<?php echo $row['email']; ?>','edit');">
 								<i class="fas fa-info-circle"></i>
