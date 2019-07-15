@@ -33,9 +33,8 @@
   </a>
   <div id="collapseClientes" class="collapse" aria-labelledby="headingClientes" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
-      <a class="collapse-item" href="novo_cliente">Novo</a>
-      <a class="collapse-item" href="clientes">Listar</a>
-		<a class="collapse-item" href="clientes">Briefing</a>
+      <a class="collapse-item" href="clientes">Clientes</a>
+		<a class="collapse-item" href="briefing">Briefing</a>
 		<a class="collapse-item" href="clientes">Simulador</a>
     </div>
   </div>

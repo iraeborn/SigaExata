@@ -3,12 +3,15 @@
 <file name="conn.php" server="177.52.160.19" local="132066604022056342" remote="132066642000000000" Dst="1" />
 <file name="conn.php" server="177.52.160.19/public_html/" local="132066604022056342" remote="132066644400000000" Dst="1" />
 <file name="code.php" server="177.52.160.19/public_html/" local="132069245143225138" remote="132069244800000000" Dst="1" />
-<file name="login.php" server="177.52.160.19/public_html/" local="132069262246979217" remote="132069262200000000" Dst="1" />
-<file name="register.php" server="177.52.160.19/public_html/" local="132069227410000000" remote="132069228600000000" Dst="1" />
-<file name="clientes.php" server="177.52.160.19/public_html/" local="132068869558838152" remote="132069066000000000" Dst="1" />
+<file name="login.php" server="177.52.160.19/public_html/" local="132073321821522820" remote="132073321800000000" Dst="1" />
+<file name="register.php" server="177.52.160.19/public_html/" local="132071076828330022" remote="132071077200000000" Dst="1" />
+<file name="clientes.php" server="177.52.160.19/public_html/" local="132071100789062140" remote="132071100600000000" Dst="1" />
 <file name="logout.php" server="177.52.160.19/public_html/" local="132068431636410180" remote="132068431800000000" Dst="1" />
 <file name="index.php" server="177.52.160.19/public_html/" local="132068373505763223" remote="132068374200000000" Dst="1" />
 <file name="loader.gif" server="177.52.160.19/public_html/" local="132069194363518332" remote="132069195600000000" Dst="1" />
 <file name="upload.php" server="177.52.160.19/public_html/" local="132069230953697587" remote="132069231000000000" Dst="1" />
 <file name="loader.svg" server="177.52.160.19/public_html/" local="132069209528533911" remote="132069209400000000" Dst="1" />
+<file name="perfil.php" server="177.52.160.19/public_html/" local="132071076999216852" remote="132071077200000000" Dst="1" />
+<file name="briefing.php" server="177.52.160.19/public_html/" local="132071114111192227" remote="132071113800000000" Dst="1" />
+<file name="novo-briefing.php" server="177.52.160.19/public_html/" local="132077002108444170" remote="132077002800000000" Dst="1" />
 </dwsync>

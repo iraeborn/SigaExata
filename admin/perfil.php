@@ -53,11 +53,7 @@ if (isset($_POST["updatebtn"])) {
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<?php include 'includes/meta.php'; ?>
 
   <title>SigaExata - Perfil Clientes</title>
 
@@ -105,7 +101,9 @@ if (isset($_POST["updatebtn"])) {
 		//$userid = $_POST["userid"];
 			//}
 if(isset($_POST["registerbtn"]) && $_POST["registerbtn"] == "editarcliente"){
+	
 $userid = $_POST["userid"];
+	
 	$query = "SELECT
    cliente.*,
    user.*
@@ -151,8 +149,8 @@ while($row = mysqli_fetch_assoc($query_run)){
                 </div>
 				  
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="email"  name="email" placeholder="Email" value="<?php echo $row['email']; ?>">
-                </div>
+<input type="email" class="form-control form-control-user" id="email"  name="email" placeholder="Email" value="<?php echo $row['email']; ?>">
+				  </div>
 				  
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -263,9 +261,127 @@ while($row = mysqli_fetch_assoc($query_run)){
 echo "Nenhum registro encontrado";
 }
 }else{
-	echo "exibe perfil";
-	echo $_GET['id'];
-}
+	//echo "exibe perfil";
+	//echo $_GET['id'];
+	
+	$userid = $_GET['id'];
+	
+	$query = "SELECT
+   cliente.*,
+   user.*
+FROM
+   cliente
+INNER JOIN
+   user ON user.cliente_id = cliente.id
+WHERE
+   cliente.id = ".$userid;
+	
+	$query_run = mysqli_query($connection, $query);
+	
+	if($query_run){
+		echo "sucesso";
+		echo "<br>mysqli_num_rows: ".mysqli_num_rows($query_run);
+		echo "<br>user_id: ".$userid; 
+	}else{
+	//erro
+		echo $query;
+	}
+if(mysqli_num_rows($query_run) > 0){
+while($row = mysqli_fetch_assoc($query_run)){
+?>
+		
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+<ul class="list-group">
+	  <li class="list-group-item active">
+	Dados Pessoais
+	</li>
+  <li class="list-group-item">
+	<i>id:</i><br><?php echo $userid ?>
+	</li>
+  <li class="list-group-item">
+	<i>Nome:</i><br><?php echo $row['nome']; ?>
+	</li>
+  <li class="list-group-item">
+	<i>Sobrenome: </i><br><?php echo $row['sobrenome']; ?>
+	</li>
+  <li class="list-group-item">
+	  <i>Email: </i><br><?php echo $row['email']; ?>
+	</li>
+  <li class="list-group-item">
+	<i>Senha: </i><br><?php echo $row['senha']; ?>
+	</li>
+</ul><br>
+    </div>
+	  
+    <div class="col-sm">
+      <ul class="list-group">
+	<li class="list-group-item active">
+	Dados Empresariais
+	</li>
+	  <li class="list-group-item">
+	<i>CNPJ: </i><br><?php echo $row['cnpj']; ?>
+	</li>
+	  <li class="list-group-item">
+	<i>Nome Fantasia: </i><br><?php echo $row['nomefantasia']; ?>
+	</li>
+	  <li class="list-group-item">
+	<i>Razão Social: </i><br><?php echo $row['razaosocial']; ?>
+	</li>
+	  <li class="list-group-item">
+	<i>Situação: </i><br><?php echo $row['situacao']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Setor: </i><br><?php echo $row['setor']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Website: </i><br><?php echo $row['site']; ?>
+	</li>
+</ul><br>
+    </div>
+    <div class="col-sm">
+      <ul class="list-group">
+	<li class="list-group-item active">
+	Endereço
+	</li>
+  <li class="list-group-item">
+	<i>Logradouro: </i><br><?php echo $row['endereco']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Cidade: </i><br><?php echo $row['cidade']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Bairro: </i><br><?php echo $row['bairro']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Estado: </i><br><?php echo $row['uf']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>CEP: </i><br><?php echo $row['cep']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Complemento: </i><br><?php echo $row['complemento']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Telefone 1: </i><br><?php echo $row['telefone1']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Telefone 2: </i><br><?php echo $row['telefone2']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Email 1: </i><br><?php echo $row['email1']; ?>
+	</li>
+	<li class="list-group-item">
+	<i>Email 2: </i><br><?php echo $row['email2']; ?>
+	</li>
+</ul><br>
+    </div>
+  </div>
+</div>
+			
+<?php
+}}}
 ?>
         </div>
         <!-- /.container-fluid -->
