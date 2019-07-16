@@ -29,3 +29,4 @@ $("input:checkbox").click(function(){
     var column = "table ." + $(this).attr("name");
     $(column).toggle();
 });
+

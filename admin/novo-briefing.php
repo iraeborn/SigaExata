@@ -29,8 +29,6 @@ include 'conn.php';
   	<!--script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
 	<script src="js/jquery.easy-autocomplete.min.js"></script>
 	
-
-	
 </head>
 	
 
@@ -62,16 +60,23 @@ include 'conn.php';
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Novo Briefing</h1>
-          <p class="mb-4">....</p>
+          <p class="mb-4">Preencha corretamente o formulário</p>
 
           <!-- DataTales Example -->
+			
+			<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Cliente</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Campanha</a>
+  </div>
+</nav>
+	<form class="user" action="code.php" method="post">		
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+	<!-- CLIENTE -->
 
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Cliente</h6>
-            </div>
-            <div class="card-body">
-              <form class="user" action="code.php" method="post">
+	<div class="card-body">
+              
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="nome"  name="nome" placeholder="Nome">
@@ -154,10 +159,37 @@ include 'conn.php';
 					<div class="form-group row">
 					  
 					  <div class="col-sm-8 mb-3">
-                  	<input type="text" class="form-control form-control-user" id="tel1"  name="tel1" placeholder="Telefone 1">
+						  
+<fieldset class="form-group">
+    <div class="input-group">
+    <span class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="fa fa-phone"></i>
+      </span>
+    </span>
+    <input type="text" class="form-control" id="tel1" placeholder="Telefone 1">
+  </div>
+  <small class="text-muted">ex. (99) 99999-9999</small>
+</fieldset>
+						  
+						  
 					  </div>
+						
                   <div class="col-sm-4">
-					<input type="text" class="form-control form-control-user" id="tel2"  name="tel2" placeholder="Telefone 2">
+					  
+<fieldset class="form-group">
+    <div class="input-group">
+    <span class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="fa fa-phone"></i>
+      </span>
+    </span>
+    <input type="text" class="form-control" id="tel2" placeholder="Telefone 2">
+  </div>
+  <small class="text-muted">ex. (99) 99999-9999</small>
+</fieldset>
+					  
+					  
 					  </div>
                 	</div>
 				  
@@ -171,15 +203,34 @@ include 'conn.php';
 					<input type="text" class="form-control form-control-user" id="email2"  name="email2" placeholder="Email 2">
 					  </div>
                 	</div>
-				  
-               <button class="btn btn-primary btn-user btn-block" type="submit" name="registerbtn">Registrar</button>
-
-				  
-				  
-              </form>
+		
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Campanha</a>
+	
+		
             </div>
-          </div>
+	  <!-- END CLIENTE -->
+	  <script>
+	  $("#tel1").click(function(){
+    $('#tel1').mask('(99) 99999-9999');
+});
 
+$("#tel2").click(function(){
+    $('#tel2').mask('(99) 99999-9999');
+});
+	  </script>
+	</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+	<!-- CAMPANHA -->
+	  	<div class="card-body">
+	  
+	  <button class="btn btn-primary btn-user btn-block" type="submit" name="registerbtn">Registrar</button>
+	  
+	  </div>
+	<!-- END CAMPANHA -->
+	</div>
+</div>
+			
+</form>
         </div>
         <!-- /.container-fluid -->
 
@@ -219,7 +270,8 @@ include 'conn.php';
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
-
+	<script src="https://coreui.io/docs/assets/js/jquery.maskedinput.min.js"></script>
+<script src="https://coreui.io/docs/assets/js/masked-input.js"></script>
 		<script>
 
 var empresas = {
