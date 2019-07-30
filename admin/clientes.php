@@ -29,8 +29,6 @@ include 'conn.php';
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-
-
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
@@ -66,24 +64,19 @@ include 'conn.php';
           <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
           <p class="mb-4">
 			  
-<!--Alert session-->
-<?php include 'includes/alerts-session.php'; ?>
-			  
+		  
 			</p>
 
           <!-- DataTales Example -->
 
-<?php
-$query = "SELECT * FROM  user";
-$query_run = mysqli_query($connection, $query);
-?>
+
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Registros</h6>
 				
 <p>
 <input type="checkbox" name="username" checked="checked"> username 
-<input type="checkbox" name="cliente_id"> cliente_id
+<input type="checkbox" name="id"> id
 <input type="checkbox" name="datacadastro" checked="checked"> datacadastro
 <input type="checkbox" name="email"> email
 <input type="checkbox" name="senha"> senha
@@ -98,7 +91,7 @@ $query_run = mysqli_query($connection, $query);
                   <thead>
                     <tr>
 					<th class="username">username</th>
-					<th class="cliente_id">cliente_id</th>
+					<th class="id">id</th>
 					<th class="datacadastro">datacadastro</th>
 					<th class="email">email</th>
 					<th class="senha">senha</th>
@@ -109,29 +102,40 @@ $query_run = mysqli_query($connection, $query);
                     </tr>
                   </thead>
                   <tbody>
-                  <?php
-if(mysqli_num_rows($query_run) > 0){
-	
-while($row = mysqli_fetch_assoc($query_run)){
+<?php
+//## START SQL
+$stusercli = $connection->prepare('SELECT * FROM  user WHERE tipo = ?');
+$stipo = "1";//nível 1 = cliente
+					  // s = string, i = int, b = blob, etc
+$stusercli->bind_param('i', $stipo); 
+$stusercli->execute();
+$stusercli->store_result();
+			
+			if ($stusercli->num_rows > 0) {
+	$stusercli->bind_result($id, $username, $email, $senha, $datacadastro, $ultimoacesso, $tipo, $status, $avatar);
+
+			while ($stusercli->fetch()) {
+//## END SQL
+			
 ?>
 					<tr>
-					<td class="username"><a href="perfil.php?id=<?php echo $row['cliente_id']; ?>"><?php echo $row['username']; ?></a></td>                  
-					<td class="cliente_id"><?php echo $row['cliente_id']; ?></td>
-					<td class="datacadastro"><?php echo $row['datacadastro']; ?></td>
-					<td class="email"><?php echo $row['email']; ?></td>
-					<td class="senha"><?php echo $row['senha']; ?></td>
-					<td class="status"><?php echo $row['status']; ?></td>
-					<td class="tipo"><?php echo $row['tipo']; ?></td>
+					<td class="username"><a href="perfil.php?id=<?php echo $id; ?>"><?php echo $username; ?></a></td>                  
+					<td class="id"><?php echo $id; ?></td>
+					<td class="datacadastro"><?php echo $datacadastro; ?></td>
+					<td class="email"><?php echo $email; ?></td>
+					<td class="senha"><?php echo $senha; ?></td>
+					<td class="status"><?php echo $status; ?></td>
+					<td class="tipo"><?php echo $tipo; ?></td>
 
 						<td>
-							<button class="btn btn-info btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $row['cliente_id']; ?>','<?php echo $row['email']; ?>','edit');">
+							<button class="btn btn-info btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $id; ?>','<?php echo $email; ?>','edit');">
 								<i class="fas fa-info-circle"></i>
 							</button>
 						</td>
 							
 
 <td>
-	<button class="btn btn-danger btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $row['cliente_id']; ?>','<?php echo $row['email']; ?>','del');">
+	<button class="btn btn-danger btn-circle" data-toggle="modal" data-target="#cli" onClick="carregacliente('<?php echo $id; ?>','<?php echo $email; ?>','del');">
 	<i class="fas fa-trash"></i>
 	</button>
 </td>
@@ -143,9 +147,8 @@ while($row = mysqli_fetch_assoc($query_run)){
 					  
 <?php
 }
-}else{
-echo "Nenhum registro encontrado";
-}
+				
+		}
 ?>
                   </tbody>
                 </table>

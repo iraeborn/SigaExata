@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="bootstrap.min.js" server="177.52.160.19/public_html/" local="132069193221331563" remote="132069193200000000" Dst="1" />
+<file name="bootstrap.min.js" server="177.52.160.19/public_html/" local="130193814470000000" remote="132088864800000000" Dst="1" />
 <file name="jquery.form.js" server="177.52.160.19/public_html/" local="132069193222441036" remote="132069193200000000" Dst="1" />
 <file name="jquery-1.10.2.min.js" server="177.52.160.19/public_html/" local="132069193221881035" remote="132069193200000000" Dst="1" />
+<file name="bootstrap.js" server="177.52.160.19/public_html/" local="130193814470000000" remote="132088864800000000" Dst="1" />
+<file name="popper.min.js" server="177.52.160.19/public_html/" local="132088875467674411" remote="132088876200000000" Dst="1" />
+<file name="tooltip.min.js" server="177.52.160.19/public_html/" local="132088875547562397" remote="132088876200000000" Dst="1" />
 </dwsync>

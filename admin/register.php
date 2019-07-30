@@ -63,18 +63,15 @@ session_start();
 			<input type="hidden" name="registerbtn" value="registro">
 
 				<div class="form-group row">
-                  <div class="col-sm-12">
-					  
-<div id="targetLayer" style="display:none;">
-					  
-					  </div>
+                  <div class="col-sm-12">  
+<div id="targetLayer" style="display:none;"></div>
                   </div>
                 </div>
 			</form>
 				  <!-- IMAGEM / submit button-->
 				<div class="form-group row">
                   <div class="col-sm-2 mb-3 mb-sm-0">
-                    <button class="btn btn-primary btn-circle" data-toggle="modal" data-target="#teste">
+                    <button class="btn btn-primary btn-circle" data-toggle="modal" data-target="#upavatar">
 						<i class="fas fa-upload"></i>
 					</button>
                   </div>
@@ -82,34 +79,7 @@ session_start();
                     <button class="btn btn-primary btn-user btn-block" type="submit" onClick="enviaform('registercliente');">Registrar</button>
                   </div>
                 </div>
-				
-				 
-				  
-				  
-                
-<?php
-//Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['success']) && $_SESSION['success'] !='')
-{
-    echo "<hr>";
-echo $_SESSION['success'];
-unset($_SESSION['success']);
-echo "<hr>";
-}
 
-//Caso a sessão seja iniciada, exibe mensagem sucess
-if(isset($_SESSION['status']) && $_SESSION['status'] !='')
-{
-    echo "<hr>";
-echo $_SESSION['status'];
-unset($_SESSION['status']);
-echo "<hr>";
-}
-
-?>
-
-              
-             
               <div class="text-center">
 				  
                 <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
@@ -126,7 +96,7 @@ echo "<hr>";
   </div>
 
 	<!-- Modal  -->
-<div class="modal fade" id="teste" tabindex="-1" role="dialog" aria-labelledby="teste" aria-hidden="true">
+<div class="modal fade" id="upavatar" tabindex="-1" role="dialog" aria-labelledby="upavatar" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -153,8 +123,7 @@ echo "<hr>";
 		  <div class="progress">
 							<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
-						
-		  
+
       </div>
 			
 		</form>
@@ -165,18 +134,10 @@ echo "<hr>";
 <!-- End Modal  -->
 	
 <!-- Bootstrap core JavaScript-->
-   <!-- <script src="vendor/jquery/jquery.min.js"></script>-->
- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
- <!--  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-
-  <!-- Page level plugins -->
-  <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script>-->
-  <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>-->
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
 
 </body>
 

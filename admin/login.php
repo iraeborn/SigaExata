@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'includes/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,12 +47,12 @@ include 'includes/session.php';
                     <h1 class="h4 text-gray-900 mb-4">Bem vindo</h1>
                   </div>
 					
-                  <form class="user" action="code" method="post">
+                  <form class="user" action="authentication" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de email...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Digite sua senha">
+                      <input type="password" class="form-control form-control-user" id="senha" name="senha" placeholder="Digite sua senha">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">

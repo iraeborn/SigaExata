@@ -2,16 +2,21 @@
 <dwsync>
 <file name="conn.php" server="177.52.160.19" local="132066604022056342" remote="132066642000000000" Dst="1" />
 <file name="conn.php" server="177.52.160.19/public_html/" local="132066604022056342" remote="132066644400000000" Dst="1" />
-<file name="code.php" server="177.52.160.19/public_html/" local="132069245143225138" remote="132069244800000000" Dst="1" />
-<file name="login.php" server="177.52.160.19/public_html/" local="132073321821522820" remote="132073321800000000" Dst="1" />
-<file name="register.php" server="177.52.160.19/public_html/" local="132071076828330022" remote="132071077200000000" Dst="1" />
-<file name="clientes.php" server="177.52.160.19/public_html/" local="132071100789062140" remote="132071100600000000" Dst="1" />
-<file name="logout.php" server="177.52.160.19/public_html/" local="132068431636410180" remote="132068431800000000" Dst="1" />
-<file name="index.php" server="177.52.160.19/public_html/" local="132068373505763223" remote="132068374200000000" Dst="1" />
+<file name="code.php" server="177.52.160.19/public_html/" local="132087264523233944" remote="132087269400000000" Dst="1" />
+<file name="login.php" server="177.52.160.19/public_html/" local="132078463753755896" remote="132078465000000000" Dst="1" />
+<file name="register.php" server="177.52.160.19/public_html/" local="132086284515170625" remote="132086284200000000" Dst="1" />
+<file name="clientes.php" server="177.52.160.19/public_html/" local="132087266870906586" remote="132087266400000000" Dst="1" />
+<file name="logout.php" server="177.52.160.19/public_html/" local="132078482273020384" remote="132078484800000000" Dst="1" />
+<file name="index.php" server="177.52.160.19/public_html/" local="132077708440001913" remote="132077709000000000" Dst="1" />
 <file name="loader.gif" server="177.52.160.19/public_html/" local="132069194363518332" remote="132069195600000000" Dst="1" />
-<file name="upload.php" server="177.52.160.19/public_html/" local="132069230953697587" remote="132069231000000000" Dst="1" />
+<file name="upload.php" server="177.52.160.19/public_html/" local="132087191480733591" remote="132087191400000000" Dst="1" />
 <file name="loader.svg" server="177.52.160.19/public_html/" local="132069209528533911" remote="132069209400000000" Dst="1" />
-<file name="perfil.php" server="177.52.160.19/public_html/" local="132071076999216852" remote="132071077200000000" Dst="1" />
+<file name="perfil.php" server="177.52.160.19/public_html/" local="132087024076895834" remote="132087024000000000" Dst="1" />
 <file name="briefing.php" server="177.52.160.19/public_html/" local="132071114111192227" remote="132071113800000000" Dst="1" />
 <file name="novo-briefing.php" server="177.52.160.19/public_html/" local="132077104166623763" remote="132077106600000000" Dst="1" />
+<file name="usuarios.php" server="177.52.160.19/public_html/" local="132087266601085857" remote="132087266400000000" Dst="1" />
+<file name="authentication.php" server="177.52.160.19/public_html/" local="132088759979646943" remote="132088759800000000" Dst="1" />
+<file name="user.php" server="177.52.160.19/public_html/" local="132089568359313188" remote="132089568000000000" Dst="1" />
+<file name="novo-cliente.php" server="177.52.160.19/public_html/" local="132089762369109056" remote="132089762400000000" Dst="1" />
+<file name="teste.html" server="177.52.160.19/public_html/" local="132088924218281775" remote="132088924200000000" Dst="1" />
 </dwsync>

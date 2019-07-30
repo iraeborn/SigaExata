@@ -55,7 +55,7 @@ if (isset($_POST["updatebtn"])) {
 
 <?php include 'includes/meta.php'; ?>
 
-  <title>SigaExata - Perfil Clientes</title>
+  <title>SigaExata - Perfil Cliente</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -95,11 +95,6 @@ if (isset($_POST["updatebtn"])) {
           <p class="mb-4">....</p>
 
 			<?php
-			//else{
-		//echo "<br>updatebtn não definido";
-		//$ac = $_POST["registerbtn"];
-		//$userid = $_POST["userid"];
-			//}
 if(isset($_POST["registerbtn"]) && $_POST["registerbtn"] == "editarcliente"){
 	
 $userid = $_POST["userid"];
@@ -261,33 +256,31 @@ while($row = mysqli_fetch_assoc($query_run)){
 echo "Nenhum registro encontrado";
 }
 }else{
-	//echo "exibe perfil";
-	//echo $_GET['id'];
 	
-	$userid = $_GET['id'];
-	
-	$query = "SELECT
+//## START SQL
+$stusercli = $connection->prepare('SELECT
    cliente.*,
    user.*
 FROM
    cliente
 INNER JOIN
-   user ON user.cliente_id = cliente.id
+   user ON user.id = cliente.userid
 WHERE
-   cliente.id = ".$userid;
+   cliente.userid = ?');
 	
-	$query_run = mysqli_query($connection, $query);
+$userid = $_GET['id'];
+					  // s = string, i = int, b = blob, etc
+$stusercli->bind_param('i', $userid); 
+$stusercli->execute();
+$stusercli->store_result();
+			
+
+if ($stusercli->num_rows > 0) {
+	$stusercli->bind_result($bairro, $cep, $cidade, $cnpj, $complemento, $email1, $email2, $endereco, $id, $mapa, $nome, $nomefantasia, $nr, $pub, $razaosocial, $setor, $sigla, $site, $situacao, $sobrenome, $telefone1, $telefone2, $uf, $userid, $id, $username, $email, $senha, $datacadastro, $ultimoacesso, $tipo, $status, $avatar);
+
+			while ($stusercli->fetch()) {
+//## END SQL
 	
-	if($query_run){
-		echo "sucesso";
-		echo "<br>mysqli_num_rows: ".mysqli_num_rows($query_run);
-		echo "<br>user_id: ".$userid; 
-	}else{
-	//erro
-		echo $query;
-	}
-if(mysqli_num_rows($query_run) > 0){
-while($row = mysqli_fetch_assoc($query_run)){
 ?>
 		
 <div class="container">
@@ -301,16 +294,16 @@ while($row = mysqli_fetch_assoc($query_run)){
 	<i>id:</i><br><?php echo $userid ?>
 	</li>
   <li class="list-group-item">
-	<i>Nome:</i><br><?php echo $row['nome']; ?>
+	<i>Nome:</i><br><?php echo $nome; ?>
 	</li>
   <li class="list-group-item">
-	<i>Sobrenome: </i><br><?php echo $row['sobrenome']; ?>
+	<i>Sobrenome: </i><br><?php echo $sobrenome; ?>
 	</li>
   <li class="list-group-item">
-	  <i>Email: </i><br><?php echo $row['email']; ?>
+	  <i>Email: </i><br><?php echo $email; ?>
 	</li>
   <li class="list-group-item">
-	<i>Senha: </i><br><?php echo $row['senha']; ?>
+	<i>Senha: </i><br><?php echo $senha; ?>
 	</li>
 </ul><br>
     </div>
@@ -321,22 +314,22 @@ while($row = mysqli_fetch_assoc($query_run)){
 	Dados Empresariais
 	</li>
 	  <li class="list-group-item">
-	<i>CNPJ: </i><br><?php echo $row['cnpj']; ?>
+	<i>CNPJ: </i><br><?php echo $cnpj; ?>
 	</li>
 	  <li class="list-group-item">
-	<i>Nome Fantasia: </i><br><?php echo $row['nomefantasia']; ?>
+	<i>Nome Fantasia: </i><br><?php echo $nomefantasia; ?>
 	</li>
 	  <li class="list-group-item">
-	<i>Razão Social: </i><br><?php echo $row['razaosocial']; ?>
+	<i>Razão Social: </i><br><?php echo $razaosocial; ?>
 	</li>
 	  <li class="list-group-item">
-	<i>Situação: </i><br><?php echo $row['situacao']; ?>
+	<i>Situação: </i><br><?php echo $situacao; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Setor: </i><br><?php echo $row['setor']; ?>
+	<i>Setor: </i><br><?php echo $setor; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Website: </i><br><?php echo $row['site']; ?>
+	<i>Website: </i><br><?php echo $site; ?>
 	</li>
 </ul><br>
     </div>
@@ -346,34 +339,34 @@ while($row = mysqli_fetch_assoc($query_run)){
 	Endereço
 	</li>
   <li class="list-group-item">
-	<i>Logradouro: </i><br><?php echo $row['endereco']; ?>
+	<i>Logradouro: </i><br><?php echo $endereco; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Cidade: </i><br><?php echo $row['cidade']; ?>
+	<i>Cidade: </i><br><?php echo $cidade; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Bairro: </i><br><?php echo $row['bairro']; ?>
+	<i>Bairro: </i><br><?php echo $bairro; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Estado: </i><br><?php echo $row['uf']; ?>
+	<i>Estado: </i><br><?php echo $uf; ?>
 	</li>
 	<li class="list-group-item">
-	<i>CEP: </i><br><?php echo $row['cep']; ?>
+	<i>CEP: </i><br><?php echo $cep; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Complemento: </i><br><?php echo $row['complemento']; ?>
+	<i>Complemento: </i><br><?php echo $complemento; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Telefone 1: </i><br><?php echo $row['telefone1']; ?>
+	<i>Telefone 1: </i><br><?php echo $telefone1; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Telefone 2: </i><br><?php echo $row['telefone2']; ?>
+	<i>Telefone 2: </i><br><?php echo $telefone2; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Email 1: </i><br><?php echo $row['email1']; ?>
+	<i>Email 1: </i><br><?php echo $email1; ?>
 	</li>
 	<li class="list-group-item">
-	<i>Email 2: </i><br><?php echo $row['email2']; ?>
+	<i>Email 2: </i><br><?php echo $email2; ?>
 	</li>
 </ul><br>
     </div>

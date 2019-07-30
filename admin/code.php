@@ -12,6 +12,7 @@ if($ac == "registro"){
 function before($this, $inthat){
         return substr($inthat, 0, strpos($inthat, $this));
 }
+	
 $avatar = $_POST["avatar"];
 $user = before('@', $_POST["email"]);
 $email = $_POST["email"];
@@ -19,8 +20,8 @@ $password = $_POST["password"];
 $cpassword = $_POST["confirmpassword"];
 $nome = $_POST["nome"];
 $sobrenome = $_POST["sobrenome"];
-$datacadastro = date("d/m/Y"); 
-$tipo = 1; //nível de acesso:0 = administrador,1 = cliente,2 = comercial,3 = marketing,4 = ti, 5 = juridico
+$datacadastro = date("d/m/Y");
+$tipo = 1; //nível de acesso: 0 = administrador, 1 = cliente, 2 = comercial, 3 = marketing, 4 = ti, 5 = juridico
 $status = 1; //0 = ativo, 1 = desativado
 	
 	if($password === $cpassword){
@@ -92,13 +93,10 @@ $email = mysqli_real_escape_string($connection, $email);
 $password = mysqli_real_escape_string($connection, $password);
 //$password = md5($password);
 	
-	$query = "SELECT
-		cliente.nome, cliente.sobrenome, user.email, user.senha, user.cliente_id, user.avatar
+	$query = "SELECT *
 		FROM
-		cliente
-		INNER JOIN
-		user ON user.cliente_id = cliente.id
-		WHERE user.email = '".$email."' AND user.senha ='".$password."'";
+		user
+		WHERE email = '".$email."' AND senha ='".$password."'";
 
 	$query_run = mysqli_query($connection, $query);
 	
@@ -109,11 +107,12 @@ $password = mysqli_real_escape_string($connection, $password);
 		$_SESSION['status'] = "você está dentro";
 		
 		while($row = mysqli_fetch_assoc($query_run)){
+		$_SESSION['tipo'] = $row['tipo'];
 		$_SESSION['sobrenome'] = $row['nome']."&nbsp;".$row['sobrenome'];
-		$_SESSION['userid'] = $row['cliente_id'];
+		$_SESSION['userid'] = $row['userid'];
 		$_SESSION['avatar'] = $row['avatar'];
 		}
-		header('Location:clientes');
+		header('Location:clientes'); // deve ser redirecionado ao dashboard
 		die();
 		
 	}else{

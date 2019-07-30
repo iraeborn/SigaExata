@@ -1,24 +1,17 @@
 <?php
-$url_atual = "$_SERVER[REQUEST_URI]";
-//"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-if($url_atual != "/admin/login"){
-	
-		if( isset($_SESSION['sucess']) ){
-			//caso a sessão sucess esteja definida
-			if($_SESSION['sucess'] == 'false'){
-				//caso a sessão sucess seja verdadeira
-				header('Location:login');
-			}else{
-				//vc está logado
-				echo $_SESSION['sucess'];
-				echo "<br>";
-				echo $url_atual;
-				if($url_atual == "/admin/"){header('Location:clientes');}
-			}
-		}else{
-				header('Location:login');
-		}
-}else{
-	echo "2";
+/*
+0 = administrador
+1 = cliente
+2 = Comercial
+3 = Marketing
+4 = Ti
+5 = Jurídico
+*/
+// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login');
+	exit();
 }
 ?>
