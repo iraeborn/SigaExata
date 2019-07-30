@@ -73,6 +73,7 @@ $(document).ready(function(){
 	
 	var options = "<option value=''>escolha um estado</option>";	
 	$("#uf").html(options);
+	$("#uf2").html(options);
 	
 	$.getJSON('includes/estados_cidades.json', function (data) {
 		
@@ -104,6 +105,26 @@ $(document).ready(function(){
 					
 				}).change();		
 			
+		$("#uf2").change(function () {				
+				
+					var options_cidades = "";
+					var str = "";
+					
+					$("#uf2 option:selected").each(function () {
+						str += $(this).text();
+					});
+					
+					$.each(data, function (key, val) {
+						if(val.nome == str) {							
+							$.each(val.cidades, function (key_city, val_city) {
+								options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
+							});							
+						}
+					});
+					$("#cidade2").html(options_cidades);
+					
+				}).change();
+		
 			});
 		
 	
